@@ -1,10 +1,11 @@
 import NavBar from './components/NavBar'
-function App() {
+import OrganicBlobs from './components/OrganicBlobs'
 
+function App() {
   return (
     <>
-    <NavBar />
-    <h1>Hello World</h1>
+      <NavBar />
+      <OrganicBlobs />
     </>
   )
 }
