@@ -1,6 +1,7 @@
 import NavBar from './components/NavBar'
 import BusinessAutomation from './components/BusinessAutomation'
 import HowItWorks from './components/HowItWorks'
+import ResultsAutomation from './components/ResultsAutomation'
 import OrganicBlobs from './components/OrganicBlobs'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <NavBar />
         <BusinessAutomation />
         <HowItWorks />
+        <ResultsAutomation />
         {/* Add more components here as needed */}
       </div>
     </div>
