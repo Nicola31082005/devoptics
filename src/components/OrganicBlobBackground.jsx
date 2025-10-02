@@ -4,8 +4,8 @@ const OrganicBlobs = ({
   className = "",
   // Professional MetaBalls configuration for business automation
   color = "#1a1a1a",  // Deep black
-  glowColor = "#404040",  // Subtle gray glow
-  glowIntensity = 2.0,  // Elegant glow
+  glowColor = "#00ff41",  // Green glow for edges
+  glowIntensity = 2.5,  // Enhanced glow for visible green edges
   morphStrength = 1.5,  // Gentle morphing for smooth peach-like shapes
   ballCount = 8,  // Balanced count for performance
   speed = 0.35,
