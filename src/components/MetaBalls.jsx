@@ -220,7 +220,7 @@ const MetaBalls = ({
       const h1 = hash31(idx);
       const st = h1[0] * (2 * Math.PI);
       const dtFactor = 0.05 * Math.PI + h1[1] * (0.15 * Math.PI - 0.05 * Math.PI);
-      const baseScale = 8.0 + h1[1] * (12.0 - 8.0);
+      const baseScale = 6.0 + h1[1] * (10.0 - 6.0);  // Reduced scale to help stay in bounds
       const h2 = hash33(h1);
       const toggle = Math.floor(h2[0] * 2.0);
       const radiusVal = 1.8 + h2[2] * (2.5 - 1.8);
@@ -239,13 +239,17 @@ const MetaBalls = ({
       
       ballParams.push(ballParam);
       
-      // Much simpler GSAP animation - just one tween per ball
-      const moveRange = 4 + i * 2;
+      // Calculate safe movement range based on screen bounds
+      // Keep movement within a safe zone to prevent going off-screen
+      const safeZoneX = (gl.canvas.width * 0.3) / animationSize;  // Convert to shader coordinates
+      const safeZoneY = (gl.canvas.height * 0.3) / animationSize;
+      const moveRangeX = Math.min(3 + i * 1.5, safeZoneX);
+      const moveRangeY = Math.min(3 + i * 1.5, safeZoneY);
       
       gsap.to(ballParam, {
         duration: 6 + h1[2] * 4,
-        gsapX: (h1[0] - 0.5) * moveRange,
-        gsapY: (h1[1] - 0.5) * moveRange,
+        gsapX: (h1[0] - 0.5) * moveRangeX,
+        gsapY: (h1[1] - 0.5) * moveRangeY,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
@@ -331,11 +335,18 @@ const MetaBalls = ({
       } else {
         const cx = gl.canvas.width * 0.5;
         const cy = gl.canvas.height * 0.5;
-        const rx = gl.canvas.width * 0.15;
-        const ry = gl.canvas.height * 0.15;
+        // Smaller orbit radius to keep cursor blob on screen
+        const rx = gl.canvas.width * 0.1;
+        const ry = gl.canvas.height * 0.1;
         targetX = cx + Math.cos(elapsed * speed * 0.7) * rx;
         targetY = cy + Math.sin(elapsed * speed * 0.7) * ry;
       }
+      
+      // Clamp cursor position to screen bounds
+      const margin = 50; // pixels margin from edge
+      targetX = Math.max(margin, Math.min(gl.canvas.width - margin, targetX));
+      targetY = Math.max(margin, Math.min(gl.canvas.height - margin, targetY));
+      
       mouseBallPos.x += (targetX - mouseBallPos.x) * hoverSmoothness;
       mouseBallPos.y += (targetY - mouseBallPos.y) * hoverSmoothness;
       program.uniforms.iMouse.value.set(mouseBallPos.x, mouseBallPos.y, 0);
