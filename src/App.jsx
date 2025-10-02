@@ -1,5 +1,6 @@
 import NavBar from './components/NavBar'
 import BusinessAutomation from './components/BusinessAutomation'
+import HowItWorks from './components/HowItWorks'
 import OrganicBlobs from './components/OrganicBlobs'
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <div className="relative z-10">
         <NavBar />
         <BusinessAutomation />
+        <HowItWorks />
         {/* Add more components here as needed */}
       </div>
     </div>
