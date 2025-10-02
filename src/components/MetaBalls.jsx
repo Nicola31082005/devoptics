@@ -69,22 +69,73 @@ uniform float iGlowIntensity;
 uniform float iMorphStrength;
 out vec4 outColor;
 
-// Simple noise function for better performance
-float simpleNoise(vec2 p) {
-    return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);
+// Advanced noise functions for organic effects
+float hash(vec2 p) {
+    p = fract(p * vec2(123.34, 456.21));
+    p += dot(p, p + 45.32);
+    return fract(p.x * p.y);
 }
 
+float noise(vec2 p) {
+    vec2 i = floor(p);
+    vec2 f = fract(p);
+    f = f * f * (3.0 - 2.0 * f);
+    
+    float a = hash(i);
+    float b = hash(i + vec2(1.0, 0.0));
+    float c = hash(i + vec2(0.0, 1.0));
+    float d = hash(i + vec2(1.0, 1.0));
+    
+    return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
+}
+
+// Fractal brownian motion for complex organic patterns
+float fbm(vec2 p) {
+    float value = 0.0;
+    float amplitude = 0.5;
+    float frequency = 1.0;
+    
+    for(int i = 0; i < 4; i++) {
+        value += amplitude * noise(p * frequency);
+        frequency *= 2.0;
+        amplitude *= 0.5;
+    }
+    return value;
+}
+
+// Simple organic distortion for peach-like shapes
+vec2 getOrganicDistortion(vec2 p, vec2 center, float time) {
+    vec2 toCenter = p - center;
+    float angle = atan(toCenter.y, toCenter.x);
+    float dist = length(toCenter);
+    
+    // Gentle wobble to create organic peach-like shape
+    float wobble1 = sin(angle * 3.0 + time * 0.8) * 0.15;
+    float wobble2 = sin(angle * 5.0 - time * 0.6) * 0.1;
+    float wobble = (wobble1 + wobble2) * iMorphStrength * 0.3;
+    
+    // Apply wobble radially for smooth organic deformation
+    return toCenter * (1.0 + wobble);
+}
+
+// Metaball with gentle organic shape (peach-like)
 float getMetaBallValue(vec2 c, float r, vec2 p) {
-  // Simple organic distortion without heavy calculations
-  vec2 offset = vec2(
-    sin(iTime * 0.5 + p.x * 0.01) * iMorphStrength * 0.3,
-    cos(iTime * 0.4 + p.y * 0.01) * iMorphStrength * 0.3
-  );
-  
-  vec2 distortedP = p + offset;
-  vec2 d = distortedP - c;
-  float dist2 = dot(d, d);
-  return (r * r) / max(dist2, 0.1);
+    vec2 d = getOrganicDistortion(p, c, iTime);
+    float dist2 = dot(d, d);
+    return (r * r) / max(dist2, 0.1);
+}
+
+// Create sophisticated color gradients for business look
+vec3 getColorGradient(float value, vec3 baseColor, float time) {
+    // Subtle color variation - professional and sleek
+    vec3 color1 = baseColor * 0.8;
+    vec3 color2 = baseColor * 1.2;
+    vec3 color3 = mix(baseColor, iGlowColor, 0.3);
+    
+    float t1 = smoothstep(0.0, 0.5, value);
+    float t2 = smoothstep(0.5, 1.0, value);
+    
+    return mix(mix(color1, color2, t1), color3, t2);
 }
 
 void main() {
@@ -93,43 +144,66 @@ void main() {
   vec2 coord = (fc - iResolution.xy * 0.5) * scale;
   vec2 mouseW = (iMouse.xy - iResolution.xy * 0.5) * scale;
   
+  // Calculate metaball field
   float m1 = 0.0;
+  vec2 closestBallPos = vec2(0.0);
+  float minDist = 999999.0;
+  
   for (int i = 0; i < 50; i++) {
     if (i >= iBallCount) break;
-    m1 += getMetaBallValue(iMetaBalls[i].xy, iMetaBalls[i].z, coord);
+    float mbValue = getMetaBallValue(iMetaBalls[i].xy, iMetaBalls[i].z, coord);
+    m1 += mbValue;
+    
+    float dist = length(coord - iMetaBalls[i].xy);
+    if (dist < minDist) {
+        minDist = dist;
+        closestBallPos = iMetaBalls[i].xy;
+    }
   }
+  
   float m2 = getMetaBallValue(mouseW, iCursorBallSize, coord);
   float total = m1 + m2;
   
-  // Simplified threshold for better performance
+  // Clean threshold for smooth solid shapes
   float threshold = 1.0;
-  float f = smoothstep(threshold - 0.2, threshold + 0.2, total);
-  
-  // Simple lighting without heavy gradient calculations
-  vec2 center = vec2(0.0);
-  float distFromCenter = length(coord - center) / 15.0;
+  float f = smoothstep(threshold - 0.15, threshold + 0.15, total);
   
   vec3 cFinal = vec3(0.0);
   if (f > 0.01) {
-    // Base color mixing
-    float alpha1 = m1 / max(total, 0.01);
+    // Base color mixing with cursor influence
     float alpha2 = m2 / max(total, 0.01);
     vec3 baseColor = mix(iColor, iCursorColor, alpha2);
     
-    // Simple radial gradient
-    float gradientFactor = 1.0 - smoothstep(0.0, 1.0, distFromCenter);
-    vec3 centerColor = baseColor * 0.7;
-    vec3 edgeColor = baseColor * 1.1;
-    vec3 gradientColor = mix(centerColor, edgeColor, gradientFactor);
+    // Distance-based coloring for depth
+    float distFromClosest = length(coord - closestBallPos);
+    float colorValue = 1.0 - smoothstep(0.0, 15.0, distFromClosest);
     
-    // Simple lighting
-    float lightFactor = 0.8 + 0.2 * sin(iTime * 0.5 + distFromCenter * 2.0);
+    // Apply vibrant gradient
+    vec3 gradientColor = getColorGradient(colorValue, baseColor, iTime);
+    
+    // Animated lighting with multiple light sources
+    float light1 = sin(iTime + distFromClosest * 0.3) * 0.5 + 0.5;
+    float light2 = cos(iTime * 0.7 - distFromClosest * 0.2) * 0.5 + 0.5;
+    float lightFactor = 0.6 + light1 * 0.3 + light2 * 0.1;
+    
     cFinal = gradientColor * lightFactor;
     
-    // Simple edge glow
-    float edgeGlow = (1.0 - f) * f * 2.0;
-    cFinal += iGlowColor * edgeGlow * iGlowIntensity * 0.4;
+    // Enhanced multi-layer glow effect
+    float edgeGlow = pow((1.0 - f) * f, 0.7) * 4.0;
+    float innerGlow = smoothstep(0.7, 1.0, f) * 0.5;
+    
+    // Animated glow color - subtle pulsing
+    vec3 glowColor = iGlowColor * (1.0 + sin(iTime * 0.8) * 0.15);
+    cFinal += glowColor * (edgeGlow * iGlowIntensity + innerGlow);
+    
+    // Subtle rim lighting for depth (professional look)
+    float rim = pow(1.0 - f, 2.5) * 0.4;
+    cFinal += iGlowColor * rim;
   }
+  
+  // Add subtle background glow even outside the shapes
+  float backgroundGlow = smoothstep(2.0, 0.0, threshold - total) * 0.05;
+  cFinal += iGlowColor * backgroundGlow;
   
   outColor = vec4(cFinal, enableTransparency ? f : 1.0);
 }

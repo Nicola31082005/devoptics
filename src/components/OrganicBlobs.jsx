@@ -4,9 +4,9 @@ const OrganicBlobs = ({
   className = "",
   // Optimized parameters for multiple smaller, separate blobs
   color = "#1a1a1a",
-  glowColor = "#00ff41",
-  glowIntensity = 1.5,
-  morphStrength = 0.8,
+  glowColor = "#404040",
+  glowIntensity = 2.0,
+  morphStrength = 1.5,
   ballCount = 4,  // 4 separate blob objects
   speed = 0.3,
   cursorBallSize = 1.5,  // Even smaller cursor follower - very subtle
