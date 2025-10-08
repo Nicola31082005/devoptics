@@ -1,4 +1,19 @@
+import AnimatedLines from './ui/AnimatedLines';
+
 const Solutions = () => {
+  const customPaths = [
+    {
+      d: "M200,100 Q400,150 600,120 Q800,90 1000,140",
+      gradient: 'primary',
+      strokeWidth: 2
+    },
+    {
+      d: "M100,450 Q300,400 500,430 Q700,460 900,420",
+      gradient: 'secondary',
+      strokeWidth: 2
+    }
+  ];
+
   const solutions = [
     {
       title: "Starter Pack",
@@ -29,7 +44,23 @@ const Solutions = () => {
   ];
 
   return (
-    <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+    <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gray-50">
+      {/* Animated Background Lines - Subtle */}
+      <AnimatedLines 
+        theme="light"
+        size="small"
+        paths={customPaths}
+        viewBox="0 0 1200 600"
+        opacity={{ start: 0, end: 0.7 }}
+        animation={{
+          duration: 2.5,
+          stagger: 0.4,
+          floatingRange: { x: [-2, 2], y: [-3, 3] },
+          floatingDuration: [8, 10],
+          delay: 0.5
+        }}
+      />
+
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-lime-200/30 to-emerald-200/20 rounded-full blur-3xl -translate-x-48 -translate-y-48"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-gray-800/20 to-gray-600/10 rounded-full blur-3xl translate-x-48 translate-y-48"></div>

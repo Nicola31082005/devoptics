@@ -3,6 +3,7 @@ import BusinessAutomation from './components/BusinessAutomation'
 import HowItWorks from './components/HowItWorks'
 import Solutions from './components/Solutions'
 import ResultsAutomation from './components/ResultsAutomation'
+import WhatIsDifferent from './components/WhatIsDifferent'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <HowItWorks />
       <ResultsAutomation />
       <Solutions />
+      <WhatIsDifferent />
       {/* Add more components here as needed */}
     </div>
   )
