@@ -1,6 +1,7 @@
 import NavBar from './components/NavBar'
 import BusinessAutomation from './components/BusinessAutomation'
 import HowItWorks from './components/HowItWorks'
+import Solutions from './components/Solutions'
 import ResultsAutomation from './components/ResultsAutomation'
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <BusinessAutomation />
       <HowItWorks />
       <ResultsAutomation />
+      <Solutions />
       {/* Add more components here as needed */}
     </div>
   )
