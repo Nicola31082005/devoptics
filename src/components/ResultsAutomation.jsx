@@ -2,7 +2,7 @@ import { Button } from './ui/button';
 
 const ResultsAutomation = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 via-emerald-950 to-gray-900 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-green-950 via-black to-green-950 overflow-hidden">
       <div className="max-w-7xl w-full mx-auto relative z-10">
         {/* Header Section */}
         <div className="text-center mb-16 space-y-4">
@@ -17,15 +17,15 @@ const ResultsAutomation = () => {
         {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Statistics */}
-          <div className="flex justify-center lg:justify-start">
-            <div className="text-center space-y-3">
-              <div className="text-8xl sm:text-9xl font-bold bg-gradient-to-r from-lime-400 to-emerald-400 bg-clip-text text-transparent font-montserrat">
+          <div className="flex justify-center font-montserrat ml-56">
+              <div className="bg-black rounded-2xl p-6 sm:p-10 text-center space-y-3 shadow-xl border border-gray-950">
+                <div className="text-7xl sm:text-8xl font-bold bg-gradient-to-r from-lime-400 to-emerald-400 bg-clip-text text-transparent">
                 40%
               </div>
-              <div className="text-2xl sm:text-3xl font-bold text-white font-montserrat">
+              <div className="text-2xl sm:text-3xl font-bold text-white">
                 Time Saved
               </div>
-              <p className="text-sm text-gray-400 font-montserrat">
+              <p className="text-sm text-gray-400">
                 Achieved by one of our<br />clients.
               </p>
             </div>

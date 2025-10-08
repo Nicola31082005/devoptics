@@ -6,7 +6,7 @@ const BusinessAutomation = () => {
       <div className="max-w-7xl w-full mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left side content */}
-          <div className="space-y-8">
+          <div className="space-y-8 lg:-ml-16">
             <div className="space-y-6">
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-black leading-tight font-montserrat">
                 AI BUSINESS

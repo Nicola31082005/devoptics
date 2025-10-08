@@ -93,7 +93,7 @@ const HowItWorks = () => {
         </div>
 
         {/* Connect Directly Section */}
-        <div className="max-w-3xl mx-auto bg-gray-50 rounded-3xl p-8 sm:p-12 shadow-sm">
+        <div className="max-w-3xl mx-auto bg-gray-100 rounded-3xl p-8 sm:p-12 shadow-sm">
           <div className="flex flex-col sm:flex-row items-center gap-8">
             {/* Avatar */}
             <div className="flex-shrink-0">
