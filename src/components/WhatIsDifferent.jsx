@@ -1,62 +1,23 @@
 import { Button } from './ui/button';
 import AnimatedLines from './ui/AnimatedLines';
+import icon1 from '../assets/whatIsDifferent/attatchment.hlm0gE.png';
+import icon2 from '../assets/whatIsDifferent/attatchment.R0Vzqx.png';
+import icon3 from '../assets/whatIsDifferent/attatchment.ztRBFF.png';
 
 const WhatIsDifferent = () => {
   const features = [
     {
-      icon: (
-        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path 
-            d="M24 8L26.1 18.5L36 16L28.5 24L36 32L26.1 29.5L24 40L21.9 29.5L12 32L19.5 24L12 16L21.9 18.5L24 8Z" 
-            fill="url(#gradient1)" 
-            stroke="currentColor" 
-            strokeWidth="2"
-          />
-          <defs>
-            <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#84cc16" />
-              <stop offset="100%" stopColor="#10b981" />
-            </linearGradient>
-          </defs>
-        </svg>
-      ),
+      icon: <img src={icon1} alt="Scalable by Design" className="w-16 h-16" />,
       title: "Scalable by Design",
       description: "Start small and expand automation as your business grows."
     },
     {
-      icon: (
-        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="18" cy="18" r="8" fill="url(#gradient2)" stroke="currentColor" strokeWidth="2"/>
-          <circle cx="30" cy="18" r="8" fill="url(#gradient2)" stroke="currentColor" strokeWidth="2"/>
-          <circle cx="24" cy="30" r="8" fill="url(#gradient2)" stroke="currentColor" strokeWidth="2"/>
-          <path d="M22 22L26 26" stroke="currentColor" strokeWidth="2"/>
-          <path d="M26 22L22 26" stroke="currentColor" strokeWidth="2"/>
-          <defs>
-            <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#84cc16" />
-              <stop offset="100%" stopColor="#10b981" />
-            </linearGradient>
-          </defs>
-        </svg>
-      ),
+      icon: <img src={icon2} alt="Seamless Integration" className="w-16 h-16" />,
       title: "Seamless Integration",
       description: "Connect with your existing tools and systems effortlessly."
     },
     {
-      icon: (
-        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="8" y="32" width="4" height="8" fill="url(#gradient3)" rx="2"/>
-          <rect x="16" y="24" width="4" height="16" fill="url(#gradient3)" rx="2"/>
-          <rect x="24" y="16" width="4" height="24" fill="url(#gradient3)" rx="2"/>
-          <rect x="32" y="20" width="4" height="20" fill="url(#gradient3)" rx="2"/>
-          <defs>
-            <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#84cc16" />
-              <stop offset="100%" stopColor="#10b981" />
-            </linearGradient>
-          </defs>
-        </svg>
-      ),
+      icon: <img src={icon3} alt="Real Results" className="w-16 h-16" />,
       title: "Real Results",
       description: "Our clients report significant time and cost savings."
     }
