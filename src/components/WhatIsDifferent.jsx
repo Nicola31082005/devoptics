@@ -12,12 +12,12 @@ const WhatIsDifferent = () => {
       description: "Start small and expand automation as your business grows."
     },
     {
-      icon: <img src={icon2} alt="Seamless Integration" className="w-16 h-16" />,
-      title: "Seamless Integration",
-      description: "Connect with your existing tools and systems effortlessly."
+        icon: <img src={icon3} alt="Real Results" className="w-16 h-16" />,
+        title: "Seamless Integration",
+        description: "Connect with your existing tools and systems effortlessly."
     },
     {
-      icon: <img src={icon3} alt="Real Results" className="w-16 h-16" />,
+      icon: <img src={icon2} alt="Seamless Integration" className="w-16 h-16" />,
       title: "Real Results",
       description: "Our clients report significant time and cost savings."
     }
