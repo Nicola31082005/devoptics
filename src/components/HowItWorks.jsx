@@ -1,25 +1,28 @@
 import { Button } from './ui/button';
-import { Search, Pencil, FileCode, TrendingUp, User } from 'lucide-react';
+import { User } from 'lucide-react';
+import discoverImage from '../assets/howItWorks/Untitled design (11).png';
+import designImage from '../assets/howItWorks/Untitled design (12).png';
+import buildImage from '../assets/howItWorks/Untitled design (14).png';
 
 const HowItWorks = () => {
   const steps = [
     {
-      icon: Search,
+      image: discoverImage,
       title: 'Discover',
       description: 'We analyze workflows and opportunities.',
     },
     {
-      icon: Pencil,
+      image: designImage,
       title: 'Design',
       description: 'We architect tailored automation solutions.',
     },
     {
-      icon: FileCode,
+      image: buildImage,
       title: 'Build',
       description: 'We implement and integrate AI systems.',
     },
     {
-      icon: TrendingUp,
+      image: designImage,
       title: 'Optimize',
       description: 'We monitor, refine, and scale.',
     },
@@ -43,17 +46,16 @@ const HowItWorks = () => {
           {/* Desktop view - horizontal layout */}
           <div className="hidden lg:grid lg:grid-cols-4 gap-8 relative">
             {/* Connecting line */}
-            <div className="absolute top-12 left-0 right-0 h-0.5 bg-lime-400 transform translate-y-1/2" 
+            <div className="absolute top-12 left-0 right-0 h-0.5 bg-lime-400 transform translate-y-1/2"
                  style={{ left: '12.5%', right: '12.5%' }}>
             </div>
-            
+
             {steps.map((step, index) => {
-              const Icon = step.icon;
               return (
                 <div key={index} className="relative z-10 text-center">
                   <div className="flex justify-center mb-6">
-                    <div className="w-20 h-20 bg-white rounded-lg border-2 border-gray-200 flex items-center justify-center shadow-sm">
-                      <Icon className="w-10 h-10 text-gray-800" strokeWidth={2} />
+                    <div className="w-20 h-20 bg-white rounded-lg border-2 border-gray-200 flex items-center justify-center shadow-sm overflow-hidden">
+                      <img src={step.image} alt={step.title} className="w-full h-full object-contain p-2" />
                     </div>
                   </div>
                   <h3 className="text-2xl font-bold text-black mb-3 font-montserrat">
@@ -70,12 +72,11 @@ const HowItWorks = () => {
           {/* Mobile/Tablet view - vertical layout */}
           <div className="lg:hidden space-y-8">
             {steps.map((step, index) => {
-              const Icon = step.icon;
               return (
                 <div key={index} className="flex gap-6 items-start">
                   <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-white rounded-lg border-2 border-gray-200 flex items-center justify-center shadow-sm">
-                      <Icon className="w-8 h-8 text-gray-800" strokeWidth={2} />
+                    <div className="w-16 h-16 bg-white rounded-lg border-2 border-gray-200 flex items-center justify-center shadow-sm overflow-hidden">
+                      <img src={step.image} alt={step.title} className="w-full h-full object-contain p-2" />
                     </div>
                   </div>
                   <div>
@@ -101,7 +102,7 @@ const HowItWorks = () => {
                 <User className="w-16 h-16 text-white" strokeWidth={1.5} />
               </div>
             </div>
-            
+
             {/* Content */}
             <div className="flex-1 text-center sm:text-left">
               <h3 className="text-3xl font-bold text-black mb-3 font-montserrat">
@@ -110,18 +111,18 @@ const HowItWorks = () => {
               <p className="text-lg text-gray-700 mb-6 font-montserrat">
                 Get in touch with our leadership team to explore how Devoptics can transform your operations.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center sm:justify-start">
-                <Button 
-                  size="lg" 
+                <Button
+                  size="lg"
                   className="bg-lime-400 hover:bg-lime-500 text-black font-semibold px-8 py-6 rounded-full text-lg transition-all duration-200 hover:shadow-lg hover:scale-105 font-montserrat"
                 >
                   Contact the CEO
                 </Button>
-                
-                <Button 
-                  variant="outline" 
-                  size="lg" 
+
+                <Button
+                  variant="outline"
+                  size="lg"
                   className="border-2 border-gray-800 hover:border-gray-900 text-black hover:text-black hover:bg-gray-100 font-semibold px-8 py-6 rounded-full text-lg transition-all duration-200 hover:shadow-lg hover:scale-105 font-montserrat"
                 >
                   Book a Call
