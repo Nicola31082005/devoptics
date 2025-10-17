@@ -4,6 +4,7 @@ import HowItWorks from './components/HowItWorks'
 import Solutions from './components/Solutions'
 import ResultsAutomation from './components/ResultsAutomation'
 import WhatIsDifferent from './components/WhatIsDifferent'
+import CaseStudies from './components/CaseStudies'
 import CanvasBlobs from './components/CanvasBlobs'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <ResultsAutomation />
         <Solutions />
         <WhatIsDifferent />
+        <CaseStudies />
       </div>
     </div>
   )
