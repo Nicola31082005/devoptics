@@ -61,7 +61,7 @@ const HowItWorks = () => {
                   <h3 className="text-2xl font-bold text-black mb-3 font-montserrat">
                     {step.title}
                   </h3>
-                  <p className="text-gray-700 font-montserrat">
+                  <p className="text-gray-700 font-montserrat font-semibold">
                     {step.description}
                   </p>
                 </div>
