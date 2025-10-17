@@ -67,19 +67,19 @@ const Solutions = () => {
       
       <div className="max-w-7xl w-full mx-auto relative z-10">
         {/* Header Section */}
-        <div className="text-center mb-16 space-y-6">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight font-montserrat">
+        <div className="text-center mb-12 sm:mb-16 space-y-4 sm:space-y-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight font-montserrat px-2">
             Solutions Built for
             <br />
             Your Business
           </h2>
-          <div className="max-w-4xl mx-auto space-y-4">
-            <p className="text-lg sm:text-xl text-gray-700 font-montserrat font-semibold">
+          <div className="max-w-4xl mx-auto space-y-3 sm:space-y-4 px-4">
+            <p className="text-base sm:text-lg md:text-xl text-gray-700 font-montserrat font-semibold">
               Choose the automation solution that matches your business goals.
             </p>
-            <p className="text-lg sm:text-xl text-gray-700 font-montserrat font-semibold">
+            <p className="text-base sm:text-lg md:text-xl text-gray-700 font-montserrat font-semibold">
               Each pack is designed to accelerate efficiency, reduce costs,
-              <br />
+              <br className="hidden sm:block" />
               and unlock new growth opportunities.
             </p>
           </div>

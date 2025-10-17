@@ -58,11 +58,11 @@ const CaseStudies = () => {
         </div>
 
         {/* Case Study Category Blobs */}
-        <div className="flex flex-wrap items-center justify-center gap-8 mb-12">
+        <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 mb-12">
           {caseStudyCategories.map((category, index) => (
             <div 
               key={index}
-              className="relative group cursor-pointer w-96 h-72"
+              className="relative group cursor-pointer w-64 h-48 sm:w-80 sm:h-60 lg:w-96 lg:h-72"
             >
               {/* Blob image as background */}
               <div className="relative w-full h-full flex items-center justify-center hover:scale-105 transition-all duration-300">
@@ -71,7 +71,7 @@ const CaseStudies = () => {
                   alt={category.text}
                   className="absolute inset-0 w-full h-full object-contain drop-shadow-2xl"
                 />
-                <span className="relative z-10 text-white font-bold text-base font-montserrat text-center px-6 max-w-[200px] whitespace-pre-line">
+                <span className="relative z-10 text-white font-bold text-sm sm:text-base font-montserrat text-center px-4 sm:px-6 max-w-[150px] sm:max-w-[200px] whitespace-pre-line">
                   {category.text}
                 </span>
               </div>
@@ -93,9 +93,9 @@ const CaseStudies = () => {
               Case Study Spotlight
             </h3>
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               {/* Left Side - Blob Image */}
-              <div className="bg-gray-100 rounded-3xl h-80 flex items-center justify-center">
+              <div className="bg-gray-100 rounded-3xl h-64 sm:h-80 flex items-center justify-center">
                 <img 
                   src={blobImage} 
                   alt="Case Study Spotlight"
@@ -104,21 +104,21 @@ const CaseStudies = () => {
               </div>
 
               {/* Right Side - Content */}
-              <div className="space-y-6">
-                <h4 className="text-2xl sm:text-3xl font-bold text-gray-900 font-montserrat">
+              <div className="space-y-4 sm:space-y-6">
+                <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 font-montserrat">
                   Retail Operations: 40% Time Saved
                 </h4>
                 
-                <p className="text-gray-700 text-lg font-montserrat leading-relaxed">
+                <p className="text-gray-700 text-base sm:text-lg font-montserrat leading-relaxed">
                   See how Devoptics optimized workflows to reduce staffing needs and improve operational, efficiency im the retail sector.
                 </p>
                 
                 {/* Action Buttons */}
-                <div className="flex flex-wrap gap-4 pt-4">
-                  <button className="bg-lime-400 hover:bg-lime-500 text-black font-bold text-lg px-8 py-3 rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 font-montserrat">
+                <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 pt-2 sm:pt-4">
+                  <button className="bg-lime-400 hover:bg-lime-500 text-black font-bold text-base sm:text-lg px-6 sm:px-8 py-3 rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 font-montserrat">
                     Read Full Case Study
                   </button>
-                  <button className="border-2 border-gray-900 text-gray-900 font-bold text-lg px-8 py-3 rounded-lg hover:bg-gray-900 hover:text-white transition-all duration-300 hover:scale-105 font-montserrat">
+                  <button className="border-2 border-gray-900 text-gray-900 font-bold text-base sm:text-lg px-6 sm:px-8 py-3 rounded-lg hover:bg-gray-900 hover:text-white transition-all duration-300 hover:scale-105 font-montserrat">
                     Book a Demo
                   </button>
                 </div>

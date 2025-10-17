@@ -47,12 +47,12 @@ const ResultsAutomation = () => {
         {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Statistics */}
-          <div className="flex justify-center font-montserrat ml-56">
+          <div className="flex justify-center font-montserrat lg:ml-56">
               <div className="bg-black rounded-2xl p-6 sm:p-10 text-center space-y-3 shadow-xl border border-gray-950">
-                <div className="text-7xl sm:text-8xl font-bold bg-gradient-to-r from-lime-400 to-emerald-400 bg-clip-text text-transparent">
+                <div className="text-6xl sm:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-lime-400 to-emerald-400 bg-clip-text text-transparent">
                 40%
               </div>
-              <div className="text-2xl sm:text-3xl font-bold text-white">
+              <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">
                 Time Saved
               </div>
               <p className="text-sm text-gray-400">

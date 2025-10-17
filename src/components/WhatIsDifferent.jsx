@@ -82,15 +82,15 @@ const WhatIsDifferent = () => {
       
       <div className="max-w-7xl w-full mx-auto relative z-10">
         {/* Outer Dark Card with Glowing Border */}
-        <div className="bg-gray-900/90 backdrop-blur-sm rounded-3xl border-2 border-lime-400/30 shadow-[0_0_80px_rgba(132,204,22,0.15)] p-4 sm:p-6 lg:p-8">
+        <div className="bg-gray-900/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl border-2 border-lime-400/30 shadow-[0_0_80px_rgba(132,204,22,0.15)] p-3 sm:p-4 md:p-6 lg:p-8">
           {/* Inner White/Light Content Card */}
-          <div className="bg-white rounded-2xl p-8 sm:p-10 lg:p-14">
+          <div className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 lg:p-14">
             {/* Header Section */}
-            <div className="text-center mb-12 space-y-4">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight font-montserrat">
+            <div className="text-center mb-8 sm:mb-12 space-y-3 sm:space-y-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight font-montserrat px-2">
                 What Makes Devoptics Different
               </h2>
-              <p className="text-base sm:text-lg text-gray-600 font-montserrat max-w-3xl mx-auto font-semibold">
+              <p className="text-sm sm:text-base md:text-lg text-gray-600 font-montserrat max-w-3xl mx-auto font-semibold px-4">
                 Our automation solutions are designed to scale with your business and deliver measurable results.
               </p>
             </div>
@@ -120,21 +120,21 @@ const WhatIsDifferent = () => {
             </div>
 
             {/* Testimonial Section */}
-            <div className="bg-gray-800 rounded-2xl p-8 mb-10">
+            <div className="bg-gray-800 rounded-xl sm:rounded-2xl p-6 sm:p-8 mb-8 sm:mb-10">
               <div className="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0 md:gap-8">
                 {/* Stats */}
                 <div className="text-center md:text-left flex-shrink-0">
-                  <div className="text-3xl sm:text-4xl font-bold text-lime-400 font-montserrat">
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-lime-400 font-montserrat">
                     2M+ Automated Tasks
                   </div>
                 </div>
                 
                 {/* Quote */}
                 <div className="text-center md:text-right max-w-2xl">
-                  <blockquote className="text-base sm:text-lg text-gray-200 font-montserrat italic mb-2">
+                  <blockquote className="text-sm sm:text-base md:text-lg text-gray-200 font-montserrat italic mb-2">
                     "Devoptics has become the backbone of our operations."
                   </blockquote>
-                  <cite className="text-sm text-gray-400 font-montserrat not-italic">
+                  <cite className="text-xs sm:text-sm text-gray-400 font-montserrat not-italic">
                     — CEO, Client Company
                   </cite>
                 </div>
@@ -142,15 +142,15 @@ const WhatIsDifferent = () => {
             </div>
 
             {/* Call to Action */}
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 font-montserrat whitespace-nowrap">
+            <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-4">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 font-montserrat text-center sm:whitespace-nowrap px-2">
                 Ready to choose your pack?
               </h3>
               
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 w-full sm:w-auto">
                 <Button 
                   size="lg" 
-                  className="bg-lime-400 hover:bg-lime-500 text-black font-semibold px-8 py-4 rounded-full text-base transition-all duration-200 hover:shadow-lg hover:scale-105 font-montserrat"
+                  className="bg-lime-400 hover:bg-lime-500 text-black font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-base transition-all duration-200 hover:shadow-lg hover:scale-105 font-montserrat w-full sm:w-auto"
                 >
                   Explore Case Studies
                 </Button>
@@ -158,7 +158,7 @@ const WhatIsDifferent = () => {
                 <Button 
                   variant="outline" 
                   size="lg" 
-                  className="border-2 border-gray-800 hover:border-gray-900 text-gray-900 hover:text-gray-900 bg-transparent hover:bg-gray-50 font-semibold px-8 py-4 rounded-full text-base transition-all duration-200 hover:shadow-lg hover:scale-105 font-montserrat"
+                  className="border-2 border-gray-800 hover:border-gray-900 text-gray-900 hover:text-gray-900 bg-transparent hover:bg-gray-50 font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-base transition-all duration-200 hover:shadow-lg hover:scale-105 font-montserrat w-full sm:w-auto"
                 >
                   Book a Demo
                 </Button>
