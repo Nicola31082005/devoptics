@@ -6,6 +6,7 @@ import ResultsAutomation from './components/ResultsAutomation'
 import WhatIsDifferent from './components/WhatIsDifferent'
 import CaseStudies from './components/CaseStudies'
 import CanvasBlobs from './components/CanvasBlobs'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Solutions />
         <WhatIsDifferent />
         <CaseStudies />
+        <Footer />
       </div>
     </div>
   )
