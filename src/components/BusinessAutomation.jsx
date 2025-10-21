@@ -39,8 +39,14 @@ const BusinessAutomation = () => {
             </div>
           </div>
           
-          {/* Right side placeholder for additional content or interactions */}
-         
+          {/* Right side - Animated GIF */}
+          <div className="flex justify-center items-center">
+            <img 
+              src="/Hailuo-Video-Turn-static-image-unscreen (1).gif" 
+              alt="AI Business Automation Animation" 
+              className="w-full max-w-md lg:max-w-lg xl:max-w-xl h-auto object-contain"
+            />
+          </div>
         </div>
       </div>
     </section>
